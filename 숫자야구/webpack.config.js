@@ -1,13 +1,29 @@
-module.exports = {
-  entry:{
-    app:'./main.js',
-  },
-  module:{
+const path = require('path');
+// const { VueLoaderPlugin } = require('vue-loader');
+const  VueLoaderPlugin  = require('vue-loader/lib/plugin');
 
+module.exports = {
+  mode:'development',
+  devtool:'eval',
+  entry:{
+    app:path.join(__dirname,'main'),
   },
-  plugins: [],
+  module:{//핵심
+    rules:[
+      {
+        test:/\.vue$/,
+        use:'vue-loader'
+      }
+    ]
+  },
+  resolve:{
+    extensions:['.js','.vue'],
+  },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
   output:{
     filename:'[name].js',
-    path:'./dist',
-  }
-}
+    path:path.join(__dirname,'dist'),
+  },
+};
