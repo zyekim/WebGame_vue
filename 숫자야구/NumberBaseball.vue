@@ -49,9 +49,15 @@ export default {
       }else{
         let strike = 0;
         let ball =0;
-
-
-
+        console.log(this.value, typeof(this.value));
+        const answerArray = this.value.split('').map((v)=>parseInt(v));
+        for (let j = 0; j < 4; j += 1) {
+          if(answerArray[j] === this.answer[j]){
+            strike++;
+          }else if(this.answer.includes(answerArray[j])){
+            ball++;
+          }
+        }
         this.tries.push({
           try:this.value,
           result:`${strike} 스트라이크, ${ball} 볼 입니다.`,

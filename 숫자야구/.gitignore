@@ -1,11 +1,7 @@
 # 기본 디렉터리 혹은 파일
 .DS_Store
 node_modules
-/dist
-
-# 로컬 환경변수 파일
-.env.local
-.env.*.local
+dist
 
 # 로그 파일
 npm-debug.log*
